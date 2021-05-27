@@ -19,7 +19,13 @@
  * sumOdds([3, 7, 8, 15, 2, 1, 13]) -> 39
  */
 function sumOdds(numbers) {
-  // Your code here
+let total = 0;
+for(let i = 0; i < numbers.length; i++){
+if ( numbers[i] % 2 == 1 )
+  total += numbers[i];
+}
+
+return total;
 }
 
 // console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
@@ -37,10 +43,16 @@ function sumOdds(numbers) {
  * Hint: Use string methods to make it case-insensitive
  */
 function characterCount(string, c) {
-  // Your code here
+let count = 0;
+for(let i=0; i< string.length; i++){
+  let trial= string.charAt(i);
+  if(trial.toLowerCase() === c.toLowerCase())
+  count++;
+}
+return count;
 }
 
-// console.log(characterCount("Character Count is clever", "c"));
+//console.log(characterCount("Character Count is clever", "c"));
 
 /**
  * differences(numbers):
@@ -58,10 +70,14 @@ function characterCount(string, c) {
  * differences([11, 35, 52, 14, 56]) -> [24,  17, -38,  42]
  */
 function differences(numbers) {
-  // Your code here
+let DiffArray = [];
+for (let i=0; i<(numbers.length)-1; i++){
+DiffArray.push (numbers[i+1] - numbers[i]);
+}
+return DiffArray;
 }
 
-// console.log(differences([11, 35, 52, 14, 56]));
+//console.log(differences([11, 35, 52, 14, 56]));
 
 /**
  * largestIncrement(numbers):
@@ -80,10 +96,18 @@ function differences(numbers) {
  * largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> 545
  */
 function largestIncrement(numbers) {
-  // Your code here
-}
+//let DiffArray = differences(numbers);
+//DiffArray = DiffArray.sort(numbers);
+ // return DiffArray [(DiffArray.length)-1];
 
-// console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
+ let DiffArray = differences(numbers);
+ let greatest = 0;
+ for (let i = 1; i < numbers.length; i++) {;
+   if (DiffArray[i]>greatest) greatest = DiffArray[i];
+ }
+ return greatest;
+}
+//console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
 
 /**
  * afterX(numbers, x):
